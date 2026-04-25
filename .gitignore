@@ -1,0 +1,51 @@
+# Godot 4.gitignore
+# https://github.com/github/gitignore/blob/master/Godot.gitignore
+
+# Godot-specific
+.godot/
+*.import
+
+# Build
+_export/
+export_presets.cfg
+*.pck
+*.zip
+*.nPK
+*.apk
+*.aab
+*.exe
+
+# Importer
+*.mp3
+*.ogg
+*.wav
+*.glade
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.code-workspace
+*.sln
+*.suo
+*.csproj
+*.unityproj
+
+# OS/Tools
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Debug
+logs/
+debug/
+*.log
+
+# Backup
+*.bak
+*.orig
+
+# Custom
+user://*

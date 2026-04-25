@@ -1,0 +1,37 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/systems/scroll_camera.gd" id="1_cam"]
+[ext_resource type="Script" path="res://scripts/systems/parallax_layer.gd" id="2_para"]
+[ext_resource type="PackedScene" id="3_player"] load_path=res://scenes/player/player.tscn
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ParallaxBack" type="Node2D" parent="Background"]
+script = ExtResource("2_para")
+scroll_speed = 20.0
+layer_offset = 0.0
+tiles_horizontally = 3
+
+[node name="ParallaxMid" type="Node2D" parent="Background"]
+script = ExtResource("2_para")
+scroll_speed = 40.0
+layer_offset = 50.0
+tiles_horizontally = 2
+
+[node name="ParallaxFore" type="Node2D" parent="Background"]
+script = ExtResource("2_para")
+scroll_speed = 80.0
+layer_offset = 100.0
+tiles_horizontally = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource("1_cam")
+scroll_speed = 80.0
+auto_scroll = true
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(128, 182)

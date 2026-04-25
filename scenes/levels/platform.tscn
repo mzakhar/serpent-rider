@@ -1,0 +1,16 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/systems/game_platform.gd" id="1Plat"]
+
+[node name="Platform" type="StaticBody2D"]
+script = ExtResource("1Plat")
+platform_id = "ground"
+width = 128.0
+height = 24.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3, 0.25, 0.2, 1)
+scale = Vector2(0.5, 0.1)

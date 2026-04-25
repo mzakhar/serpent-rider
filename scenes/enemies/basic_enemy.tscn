@@ -1,0 +1,20 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_enemy"]
+
+[node name="BasicEnemy" type="Area2D"]
+script = ExtResource("1_enemy")
+health = 10
+max_health = 10
+damage_on_contact = 10
+score_value = 100
+enemy_type = 0
+movement_pattern = "straight"
+move_speed = 80.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.3, 0.3, 1)
+scale = Vector2(0.3, 0.3)

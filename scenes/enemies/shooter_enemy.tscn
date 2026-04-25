@@ -1,0 +1,22 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_enemy"]
+[ext_resource type="Script" path="res://scripts/enemies/shooter_enemy.gd" id="2_shooter"]
+
+[node name="ShooterEnemy" type="Area2D"]
+script = ExtResource("2_shooter")
+health = 20
+max_health = 20
+damage_on_contact = 15
+score_value = 200
+enemy_type = 1
+movement_pattern = "straight"
+move_speed = 60.0
+shoot_interval = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.2, 0.8, 1)
+scale = Vector2(0.35, 0.35)

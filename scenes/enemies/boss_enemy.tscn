@@ -1,0 +1,28 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_enemy"]
+[ext_resource type="Script" path="res://scripts/enemies/boss_enemy.gd" id="2_boss"]
+
+[node name="BossEnemy" type="Area2D"]
+script = ExtResource("2_boss")
+health = 100
+max_health = 100
+damage_on_contact = 30
+score_value = 1000
+enemy_type = 3
+movement_pattern = "straight"
+move_speed = 20.0
+shoot_interval = 2.0
+max_phase = 3
+phase_health = [100, 75, 50]
+attack_patterns = ["spread", "barrage", "barrage", "spiral"]
+float_amplitude = 40.0
+float_speed = 2.0
+horizontal_move = 60.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.1, 0.1, 1)
+scale = Vector2(1.2, 1.2)

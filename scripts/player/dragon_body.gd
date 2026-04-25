@@ -13,6 +13,7 @@ signal shield_deactivated
 
 @export var shield_active: bool = false
 @export var shield_segments: int = 3
+@export var tail_damage: int = 5
 
 var segments: Array[DragonSegment] = []
 var head_position: Vector2 = Vector2.ZERO
@@ -126,12 +127,21 @@ func create_segments() -> void:
 		collision.name = "CollisionShape2D"
 		collision.set_deferred("disabled", true)
 		collision.position = Vector2.ZERO
+		collision.collision_layer = 2
 		segment.add_child(collision)
+		
+		segment.area_entered.connect(_on_segment_collision.bind(i))
 		
 		segments.append(segment)
 		add_child(segment)
 	
 	segments[0].is_head = true
+
+func _on_segment_collision(area: Area2D, segment_index: int) -> void:
+	if area.has_method("get_team") and area.get_team() == "enemy":
+		if area.has_method("take_damage"):
+			area.take_damage(tail_damage)
+			EventBus.enemy_died.emit("tail_strike", area.global_position)
 
 func get_head_position() -> Vector2:
 	if segments.is_empty():

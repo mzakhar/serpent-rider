@@ -5,55 +5,46 @@
 [ext_resource type="Script" path="res://scripts/systems/level_manager.gd" id="3_lvl"]
 [ext_resource type="Script" path="res://scripts/systems/game_hud.gd" id="4_hud"]
 [ext_resource type="PackedScene" id="5_player"] load_path=res://scenes/player/player.tscn
-[ext_resource type="PackedScene" id="6_enemy"] load_path=res://scenes/enemies/basic_enemy.tscn
 
-[node name="MainLevel" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -10
 
 [node name="ParallaxBack" type="Node2D" parent="Background"]
 script = ExtResource("2_para")
-scroll_speed = 20.0
-layer_offset = 0.0
+scroll_speed = 25.0
+layer_offset = 20.0
 tiles_horizontally = 3
 
 [node name="ParallaxMid" type="Node2D" parent="Background"]
 script = ExtResource("2_para")
-scroll_speed = 40.0
-layer_offset = 50.0
+scroll_speed = 50.0
+layer_offset = 70.0
 tiles_horizontally = 2
 
 [node name="ParallaxFore" type="Node2D" parent="Background"]
 script = ExtResource("2_para")
-scroll_speed = 80.0
-layer_offset = 100.0
+scroll_speed = 100.0
+layer_offset = 120.0
 tiles_horizontally = 2
 
 [node name="Game" type="Node2D" parent="."]
 
 [node name="LevelManager" type="Node2D" parent="Game"]
 script = ExtResource("3_lvl")
-level_number = 1
-time_limit = 120.0
-kill_target = 30
+level_number = 2
+time_limit = 90.0
+kill_target = 40
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
 current = true
 script = ExtResource("1_cam")
-scroll_speed = 80.0
+scroll_speed = 100.0
 auto_scroll = true
 
 [node name="Player" parent="Game" instance=ExtResource("5_player")]
 position = Vector2(128, 182)
 
-[node name="EnemySpawner" type="Node2D" parent="Game"]
-position = Vector2(600, 100)
-
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 100
-
-[node name="GameHUD" type="Control" parent="HUD"]
-anchor_right = Vector2(1, 0)
-anchor_bottom = Vector2(1, 1)
-script = ExtResource("4_hud")

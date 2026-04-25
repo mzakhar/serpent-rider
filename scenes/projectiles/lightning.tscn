@@ -1,0 +1,18 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/systems/projectile.gd" id="1_proj"]
+
+[node name="Lightning" type="Area2D"]
+script = ExtResource("1_proj")
+speed = 400.0
+damage = 15
+projectile_type = 1
+lifetime = 1.5
+pierce_count = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.3, 0.5, 1, 1)
+scale = Vector2(0.15, 0.4)

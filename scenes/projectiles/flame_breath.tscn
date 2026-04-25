@@ -1,0 +1,18 @@
+[gd_scene load_type=2]
+
+[ext_resource type="Script" path="res://scripts/systems/projectile.gd" id="1_proj"]
+
+[node name="FlameBreath" type="Area2D"]
+script = ExtResource("1_proj")
+speed = 200.0
+damage = 8
+projectile_type = 5
+lifetime = 0.8
+pierce_count = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.3, 0, 1)
+scale = Vector2(0.4, 0.2)
